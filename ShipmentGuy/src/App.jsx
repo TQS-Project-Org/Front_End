@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'
+import './App.css';
 import Login from './pages/Login/Login';
 import Layout from './layouts/Layout';
 import HomePage from './pages/HomePage/HomePage';
+
 
 function App() {
   
