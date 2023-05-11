@@ -11,7 +11,8 @@
 }
 
 .login_wrapper {
-	background-color: var(--white);
+	background-color: var(--gray-650);
+	color: var(--white);
 	display: flex;
 	flex-direction: column;
 
@@ -38,12 +39,12 @@
 	font-weight: 400;
 
 	border-radius: 1rem 1rem 0 0;
-	padding: 1rem;
+	padding: 0.5rem;
 
 }
 
 .login_form_field {
-	padding: 0 1rem;
+	padding: 0 2rem;
 	width: 100%;
 }
 
@@ -59,9 +60,11 @@ input{
 	align-content: center;
 	align-items: center;
 
-	margin-bottom: 1rem;
+	margin: 1rem;
 }
 .login_form_login_button {
 	width: 18rem;
 	border-radius: 1rem;
+	margin-bottom: 1rem;
+	background-color: var(--green-amanacu-3);
 }
