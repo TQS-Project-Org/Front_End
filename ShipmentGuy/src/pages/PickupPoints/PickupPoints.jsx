@@ -3,54 +3,10 @@ import { Form, Button, Table, InputGroup, Dropdown, DropdownButton } from "react
 import { ArrowsCounterClockwise, MagnifyingGlass } from "phosphor-react";
 import styles from "./PickupPoints.module.css";
 
-let json = {
-	"users": [
-		{
-			"id": 1,
-			"name": "Amanacu",
-			"address": "1234 Main St",
-			"city": "San Diego",
-			"state": "CA",
-			"zip": "3810-193",
-			"phone": "911524213",
-			"opens": "9am",
-			"closes": "5pm",
-			"available": "Yes"
-		},
-		{
-			"id": 2,
-			"name": "Amanacu",
-			"address": "1234 Main St",
-			"city": "San Diego",
-			"state": "CA",
-			"zip": "3810-193",
-			"phone": "911524213",
-			"opens": "9am",
-			"closes": "5pm",
-			"available": "Yes"
-		},
-		{
-			"id": 3,
-			"name": "Amanacu",
-			"address": "1234 Main St",
-			"city": "San Diego",
-			"state": "CA",
-			"zip": "3810-193",
-			"phone": "911524213",
-			"opens": "9am",
-			"closes": "5pm",
-			"available": "Yes"
-		}]
-}
-
 export default function PickupPoints() {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [pickupPoints, setPickupPoints] = useState([]);
 	const [selectedFilter, setSelectedFilter] = useState("Name");
-
-	useEffect(() => {
-		getUsersFromMockingAPI();
-	}, []);
 
 	const handleSelectedFilter = (e) => {
 		console.log("Selected filter will be: ", e);
@@ -62,12 +18,6 @@ export default function PickupPoints() {
 	const handleDelete = (e) => {
 		console.log("Deleting this: ", e.target.value);
 	};
-
-	const getUsersFromMockingAPI = async () => {
-		const response = await fetch("127.0.0.1:3000/users/all");
-		const data = await response.json();
-		console.log("DADOS VINDOS DO NODEJS API MOCK: ", data);
-	}
 
 	return (
 		<div className={styles.pickupPoints_wrapper}>
@@ -125,35 +75,29 @@ export default function PickupPoints() {
 					</tr>
 				</thead>
 				<tbody>
-					{
-						json.users.map((user, key) => {
-							return (<>
-								<tr key={key}>
-									<td>{user.id}</td>
-									<td>{user.name}</td>
-									<td>{user.address}</td>
-									<td>{user.city}</td>
-									<td>{user.state}</td>
-									<td>{user.zip}</td>
-									<td>{user.phone}</td>
-									<td>{user.opens}</td>
-									<td>{user.closes}</td>
-									<td>{user.available}</td>
-									<td className={styles.pickupPoints_table_td_actions}>
-										<a onClick={(e) => handleEdit(e)} className="">
-											Edit
-										</a>
-										<span disabled className="ms-2">
-											or
-										</span>
-										<a onClick={(e) => handleDelete(e)} className="ms-2">
-											Delete
-										</a>
-									</td>
-								</tr>
-							</>)
-						})
-					}
+					<tr>
+						<td>1</td>
+						<td>Amanacu</td>
+						<td>1234 Main St</td>
+						<td>San Diego</td>
+						<td>CA</td>
+						<td>3810-193</td>
+						<td>911524213</td>
+						<td>9am</td>
+						<td>5pm</td>
+						<td>Yes</td>
+						<td className={styles.pickupPoints_table_td_actions}>
+							<a onClick={(e) => handleEdit(e)} className="">
+								Edit
+							</a>
+							<span disabled className="ms-2">
+								or
+							</span>
+							<a onClick={(e) => handleDelete(e)} className="ms-2">
+								Delete
+							</a>
+						</td>
+					</tr>
 				</tbody>
 				<tfoot>
 					<tr>
