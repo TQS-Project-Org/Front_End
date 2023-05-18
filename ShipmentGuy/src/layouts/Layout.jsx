@@ -6,7 +6,6 @@ export default function Layout() {
 	return (
 		<div>
 			<Menubar />
-			Hello World, this is the Layout
 			<div className="layout_content">
 				<Outlet />
 			</div>

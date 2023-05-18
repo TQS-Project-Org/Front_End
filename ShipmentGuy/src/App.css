@@ -42,6 +42,8 @@
 
 	--transparent-gray-200: #e7e7e7d5;
 
+	--dark-bs-btn: #212529;
+	--dark-500: #212127;
 	--dark-600: #16161a;
 
 	--red-500: #e95751;
@@ -69,6 +71,16 @@
 
 body {
 	background-color: #0c0c0c;
+}
+
+a {
+	color: var(--green-amanacu-3);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--green-amanacu-2);
+	text-decoration: none;
+	cursor: pointer;
 }
 
 /* aplica a largura maxima de tudo dentro do layout */
