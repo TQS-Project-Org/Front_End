@@ -8,6 +8,10 @@ export default function PickupPoints() {
 	const [pickupPoints, setPickupPoints] = useState([]);
 	const [selectedFilter, setSelectedFilter] = useState("Name");
 
+	useEffect(() => {
+		getUsersFromMockingAPI();
+	}, []);
+
 	const handleSelectedFilter = (e) => {
 		console.log("Selected filter will be: ", e);
 		setSelectedFilter(e);
@@ -18,6 +22,12 @@ export default function PickupPoints() {
 	const handleDelete = (e) => {
 		console.log("Deleting this: ", e.target.value);
 	};
+
+	const getUsersFromMockingAPI = async () => {
+		const response = await fetch("localhost:3000/users/all");
+		const data = await response.json();
+		console.log("DADOS VINDOS DO NODEJS API MOCK: ", data);
+	}
 
 	return (
 		<div className={styles.pickupPoints_wrapper}>
