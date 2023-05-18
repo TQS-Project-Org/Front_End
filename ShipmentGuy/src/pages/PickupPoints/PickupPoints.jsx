@@ -24,7 +24,7 @@ export default function PickupPoints() {
 	};
 
 	const getUsersFromMockingAPI = async () => {
-		const response = await fetch("localhost:3000/users/all");
+		const response = await fetch("127.0.0.1:3000/users/all");
 		const data = await response.json();
 		console.log("DADOS VINDOS DO NODEJS API MOCK: ", data);
 	}
