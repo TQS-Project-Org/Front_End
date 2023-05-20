@@ -48,19 +48,37 @@ export default function PickupPoints() {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [pickupPoints, setPickupPoints] = useState([]);
 	const [selectedFilter, setSelectedFilter] = useState("Name");
+
 	const [modalShow, setModalShow] = useState(false);
+	const [userEdit, setUserEdit] = useState([{}]);
 
 	useEffect(() => {
 		getUsersFromMockingAPI();
 	}, []);
 
+
 	const handleSelectedFilter = (e) => {
 		console.log("Selected filter will be: ", e);
 		setSelectedFilter(e);
 	};
+
+	const giveUser = () => {
+		console.log("Giving user: ", userEdit)
+		return userEdit;
+	}
 	const handleEdit = (e, pickupPoint) => {
+		console.log("Editing this: ", pickupPoint)
+		setUserEdit(pickupPoint);
 		setModalShow(true);
-		console.log("Editing this: ", e.target.value);
+	};
+	const handlePickupPointEdit = (newJson) => {
+		console.log("Editando pickup point: ");
+		/*for (let i = 0; i < json.users.length; i++) {
+			if (json.users[i].id === newJson.id) {
+				json.users[i] = newJson;
+				break;
+			}
+		}*/
 	};
 	const handleDelete = (e) => {
 		console.log("Deleting this: ", e.target.value);
@@ -172,6 +190,8 @@ export default function PickupPoints() {
 			<ModalPickup
 			show={modalShow}
 			onHide={() => setModalShow(false)}
+			onEdit={(newJson) => handlePickupPointEdit(newJson)}
+			user={giveUser}
 			/>
 		</div>
 	);
